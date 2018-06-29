@@ -2,6 +2,13 @@
 
 Experimental API to extract the general error title.
 
+## Installation
+Apply changes on your `Cargo.toml`
+```` toml
+[dependencies]
+extractor = "0.1.0"
+````
+
 ## Example
 ```
 error[E0382]: use of moved value: 'v'
