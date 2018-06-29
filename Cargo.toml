@@ -1,0 +1,7 @@
+[package]
+name = "extractor"
+version = "0.1.0"
+authors = ["Kirill Meng <kimeng@htwg-konstanz.de>"]
+
+[dependencies]
+regex = "1"
