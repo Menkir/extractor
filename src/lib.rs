@@ -66,7 +66,7 @@ fn get_error_text(s: String, with_error: bool) -> Vec<String> {
     descriptions
 }
 
-fn structure_compiler_output(output: String) -> Vec<String> {
+pub fn structure_compiler_output(output: String) -> Vec<String> {
     let mut errors: Vec<String> = Vec::new();
     let re = Regex::new(r"(?m)error\[E\d{4}\]:").unwrap();
     for entry in output.split("\n\n") {
