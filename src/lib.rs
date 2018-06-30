@@ -67,7 +67,7 @@ fn get_error_text(s: String, with_error: bool) -> Vec<String> {
 }
 
 /// Returns a Vector of compiler error entries
-/// 
+///
 /// # Arguments
 /// * `s` - The whole Compilererror output as String
 

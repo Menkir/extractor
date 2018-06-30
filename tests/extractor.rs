@@ -69,7 +69,7 @@ fn test_multiple_error_messages() {
 }
 
 #[test]
-fn test_structure_compiler_output(){
+fn test_structure_compiler_output() {
     assert_eq!(
         structure_compiler_output(String::from("warning: unused variable: `v2`\n
  --> examples/fail.rs:3:9\n
