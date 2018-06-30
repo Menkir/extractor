@@ -1,4 +1,4 @@
-# extractor [![Build Status](https://travis-ci.org/Menkir/bsys.svg?branch=master)](https://travis-ci.org/Menkir/bsys)
+# extractor [![Build Status](https://travis-ci.org/Menkir/extractor.svg?branch=master)](https://travis-ci.org/Menkir/extractor)
 Experimental API to extract the general error title.
 
 ## Installation
