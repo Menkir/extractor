@@ -4,7 +4,7 @@
 //! [resa](https://github.com/Menkir/resa).
 //!
 //! The following example will demonstrate the purpose:
-//! ```
+//! ```text
 //! error[E0382]: use of moved value: 'v'
 //! --> examples/fail.rs:4:29
 //! |
@@ -34,9 +34,9 @@ const FIRST_LINE: usize = 0;
 /// * `s` - A error message as String
 ///
 /// # Example
-/// ```
-/// assert_eq!(extractor::get_error_text_without_error_code("error[E0369]: binary operation + cannot be applied to type <T as std::ops::Mul>::Output"),
-/// vec!["error[E0369]: binary operation cannot be applied to type"]);
+/// ```rust
+/// assert_eq!(extractor::get_error_text_without_error_code(String::from("error[E0369]: binary operation + cannot be applied to type <T as std::ops::Mul>::Output")),
+/// vec!["binary operation cannot be applied to type"]);
 /// ```
 pub fn get_error_text_with_error_code(s: String) -> Vec<String> {
     get_error_text(s, true)
@@ -48,9 +48,9 @@ pub fn get_error_text_with_error_code(s: String) -> Vec<String> {
 /// * `s` - A error message as String
 ///
 /// # Example
-/// ```
-/// assert_eq!(extractor::get_error_text_without_error_code("error[E0369]: binary operation + cannot be applied to type <T as std::ops::Mul>::Output"),
-/// vec!["binary operation cannot be applied to type"]);
+/// ```rust
+/// assert_eq!(extractor::get_error_text_with_error_code(String::from("error[E0369]: binary operation + cannot be applied to type <T as std::ops::Mul>::Output")),
+/// vec!["error[E0369]: binary operation cannot be applied to type"]);
 /// ```
 pub fn get_error_text_without_error_code(s: String) -> Vec<String> {
     get_error_text(s, false)
@@ -65,6 +65,11 @@ fn get_error_text(s: String, with_error: bool) -> Vec<String> {
     }
     descriptions
 }
+
+/// Returns a Vector of compiler error entries
+/// 
+/// # Arguments
+/// * `s` - The whole Compilererror output as String
 
 pub fn structure_compiler_output(output: String) -> Vec<String> {
     let mut errors: Vec<String> = Vec::new();

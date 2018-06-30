@@ -1,5 +1,5 @@
 extern crate extractor;
-use untitled::*;
+use extractor::*;
 
 #[test]
 fn test_without_error() {
@@ -66,4 +66,34 @@ fn test_multiple_error_messages() {
             "no associated item named",
         ]
     )
+}
+
+#[test]
+fn test_structure_compiler_output(){
+    assert_eq!(
+        structure_compiler_output(String::from("warning: unused variable: `v2`\n
+ --> examples/fail.rs:3:9\n
+  |\n
+3 |     let v2 = v;\n
+  |         ^^ help: consider using `_v2` instead\n
+  |\n
+  = note: #[warn(unused_variables)] on by default\n
+\n
+error[E0382]: use of moved value: `v`\n
+ --> examples/fail.rs:4:29\n
+  |\n
+3 |     let v2 = v;\n
+  |         -- value moved here\n
+4 |     println!('v[0] is: {}', v[0]);\n
+  |                             ^ value used here after move\n
+  |\n
+  = note: move occurs because `v` has type `std::vec::Vec<i32>`, which does not implement the `Copy` trait\n
+\n
+error[E0017]: references in statics may only refer to immutable values\n
+ --> examples/fail.rs:6:42\n
+  |\n
+6 |     static CONST_REF: &'static mut i32 = &mut C;\n
+  |                                          ^^^^^^ statics require immutable values\n
+\n
+error: aborting due to 2 previous errors")).len(), 2);
 }
