@@ -2,6 +2,14 @@
 name = "extractor"
 version = "0.1.0"
 authors = ["Kirill Meng <kimeng@htwg-konstanz.de>"]
+repository = "https://github.com/Menkir/extractor"
+license = "Unlicense"
+description = """
+Experimental API to extract the general error title of the compiler.
+"""
+
+[badges]
+travis-ci = { repository = "Menkir/extractor" }
 
 [dependencies]
 regex = "1"
